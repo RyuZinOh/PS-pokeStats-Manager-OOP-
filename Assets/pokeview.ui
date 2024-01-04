@@ -1,0 +1,13 @@
+ _______________________________________
+|                                       |
+|         POKEMON CENTER  [VIEW]        |
+|_______________________________________|
+| Option  |      Description            |
+|_________|_____________________________|
+|   1     |   [Parameter Based]         |
+|   2     |   [Based on the type]       |
+|   3     |   [Based on the Name]       |
+|   4     |   [Entire Database]         |
+|   5     |   [View My Inventory]       |
+|   6     |   [go Back]                 |
+|_________|_____________________________|
