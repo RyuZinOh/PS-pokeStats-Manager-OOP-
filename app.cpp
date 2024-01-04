@@ -5,9 +5,9 @@
 #include "Modules/tempDelete.h"
 using namespace std;
 
-
 //----ADMIN-SECTION----//
-class registration{
+class registration
+{
 private:
     string reg_user;
     string pss_user;
@@ -177,8 +177,8 @@ public:
     }
 };
 
-//VIEW module 
-class PokemonView 
+// VIEW module
+class PokemonView
 {
 private:
     void viewMenu()
@@ -208,19 +208,15 @@ public:
             switch (optionForView)
             {
             case 1:
-                // Implement logic for viewing all Pokemon
                 break;
             case 2:
-                // Implement logic for viewing Pokemon by type
                 break;
             case 3:
-                // Implement logic for viewing Pokemon by user
+
                 break;
             case 4:
-                // Implement logic for viewing Pokemon details
                 break;
             case 5:
-                // Implement logic for sorting Pokemon
                 break;
             case 6:
                 cout << "Exiting view mode. Returning to main menu." << endl;
@@ -230,9 +226,8 @@ public:
             }
         } while (optionForView != 6);
     }
-
 };
-//ADD module
+// ADD module
 class pokemonadd
 {
 private:
@@ -291,8 +286,8 @@ public:
     }
 };
 
-//CENTER module
-class Pokemon :public root, public pokemonadd, public PokemonView
+// CENTER module
+class Pokemon : public root, public pokemonadd, public PokemonView
 {
 private:
     void displayMenu()
@@ -313,7 +308,7 @@ public:
     {
         char choice;
         do
-        {  
+        {
             system("cls");
             displayMenu();
             cout << "Enter your choice: ";
@@ -326,7 +321,7 @@ public:
                 addpoke();
                 break;
             case '2':
-            system("cls");
+                system("cls");
                 viewpokemon();
                 break;
             case '3':
