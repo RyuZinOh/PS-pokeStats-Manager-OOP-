@@ -3,6 +3,9 @@
 #include <string>
 #include <conio.h>
 #include "Modules/tempDelete.h"
+#include "Modules/messages.h"
+#include "Modules/param_based.h"
+#include "Modules/myinv.h"
 using namespace std;
 
 //----ADMIN-SECTION----//
@@ -177,10 +180,11 @@ public:
     }
 };
 
-// VIEW module
+// VIEW module //
 class PokemonView
 {
 private:
+
     void viewMenu()
     {
         ifstream viewMenuFile;
@@ -195,7 +199,10 @@ private:
         viewMenuFile.close();
     }
 
+    
+
 public:
+
     void viewpokemon()
     {
         int optionForView;
@@ -208,25 +215,24 @@ public:
             switch (optionForView)
             {
             case 1:
-                break;
+              system("cls");
+              displayPokemonList();
+              break;
             case 2:
+             system("cls");
+             userinv();
                 break;
             case 3:
-
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
-            case 6:
                 cout << "Exiting view mode. Returning to main menu." << endl;
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
             }
-        } while (optionForView != 6);
+        } while (optionForView != 3);
     }
 };
+// VIEW -INV //
+
 // ADD module
 class pokemonadd
 {
@@ -281,8 +287,14 @@ public:
 
         poke << name << '\t' << spdiv << '\t' << atk << '\t' << spatk << '\t'
              << spdef << '\t' << def << '\t' << hp << '\t' << iv << '\t' << type << '\t' << getuserfromtemp << '\n';
-        cout << "successfully added !" << endl;
+        Messages::showPokemonAddedMessage();
         poke.close();
+
+        if (Messages::askToAddAnotherPokemon())
+        {
+            addpoke(); 
+        }
+        
     }
 };
 

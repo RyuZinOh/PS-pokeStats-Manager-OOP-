@@ -5,9 +5,6 @@
 | Option  |      Description            |
 |_________|_____________________________|
 |   1     |   [Parameter Based]         |
-|   2     |   [Based on the type]       |
-|   3     |   [Based on the Name]       |
-|   4     |   [Entire Database]         |
-|   5     |   [View My Inventory]       |
-|   6     |   [go Back]                 |
+|   2     |   [View My Inventory]       |
+|   3     |   [go Back]                 |
 |_________|_____________________________|
