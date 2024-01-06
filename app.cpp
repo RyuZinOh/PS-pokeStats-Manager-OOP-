@@ -6,6 +6,8 @@
 #include "Modules/messages.h"
 #include "Modules/param_based.h"
 #include "Modules/myinv.h"
+#include "Modules/help.h"
+#include "Modules/removemyinv.h"
 using namespace std;
 
 //----ADMIN-SECTION----//
@@ -184,7 +186,6 @@ public:
 class PokemonView
 {
 private:
-
     void viewMenu()
     {
         ifstream viewMenuFile;
@@ -199,10 +200,7 @@ private:
         viewMenuFile.close();
     }
 
-    
-
 public:
-
     void viewpokemon()
     {
         int optionForView;
@@ -215,12 +213,12 @@ public:
             switch (optionForView)
             {
             case 1:
-              system("cls");
-              displayPokemonList();
-              break;
+                system("cls");
+                displayPokemonList();
+                break;
             case 2:
-             system("cls");
-             userinv();
+                system("cls");
+                userinv();
                 break;
             case 3:
                 cout << "Exiting view mode. Returning to main menu." << endl;
@@ -292,9 +290,8 @@ public:
 
         if (Messages::askToAddAnotherPokemon())
         {
-            addpoke(); 
+            addpoke();
         }
-        
     }
 };
 
@@ -316,8 +313,10 @@ private:
     }
 
 public:
+    Helper amazing;
     void pokemonOperation()
     {
+
         char choice;
         do
         {
@@ -337,10 +336,12 @@ public:
                 viewpokemon();
                 break;
             case '3':
-
+                system("cls");
+                remove_inv();
                 break;
             case '4':
-
+                system("cls");
+                amazing.showHelp();
                 break;
             case '5':
                 cout << "Exiting .." << std::endl;

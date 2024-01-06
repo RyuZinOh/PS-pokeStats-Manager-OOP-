@@ -23,20 +23,20 @@ void userinv()
     string user;
 
     ifstream openuser;
-    openuser.open("Admins/temp.txt");
+    openuser.open("./Admins/temp.txt");
 
     string username;
     getline(openuser, username);
     openuser.close();
 
-    ifstream pokemonFile("Assets/poke_base.dat");
+    ifstream pokemonFile("./Assets/poke_base.dat");
     string line;
     system("cls");
 
     while (true)
     {
         cout << left << setw(15) << "Name" << setw(10) << "Type" << setw(5) << "HP" << endl;
-        cout << setfill('-') << setw(30) << "" << setfill(' ') << endl;
+        cout <<"+-------------------+---------------+" << endl;
         while (pokemonFile >> name >> spdiv >> atk >> spatk >> spdef >> def >> hp >> iv >> type >> user)
         {
             if (user == username)
