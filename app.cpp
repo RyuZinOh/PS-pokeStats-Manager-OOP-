@@ -7,6 +7,7 @@
 #include "Modules/param_based.h"
 #include "Modules/myinv.h"
 #include "Modules/help.h"
+// Remove-module-->implemted on header file
 #include "Modules/removemyinv.h"
 using namespace std;
 
@@ -182,7 +183,7 @@ public:
     }
 };
 
-// VIEW module //
+//VIEW module//
 class PokemonView
 {
 private:
@@ -229,9 +230,7 @@ public:
         } while (optionForView != 3);
     }
 };
-// VIEW -INV //
-
-// ADD module
+//ADD module//
 class pokemonadd
 {
 private:
@@ -295,7 +294,7 @@ public:
     }
 };
 
-// CENTER module
+//~~ CENTER module ~~//
 class Pokemon : public root, public pokemonadd, public PokemonView
 {
 private:
@@ -353,6 +352,7 @@ public:
     }
 };
 
+//------MAIN FUNCTION-----//
 int main()
 {
     TempDelete tempo;
