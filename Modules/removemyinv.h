@@ -56,7 +56,7 @@ void remove_inv()
 
         if (deleteNum == 0)
         {
-            break; // Exit the loop if the user enters -1
+            break; 
         }
 
         // Reopen the file to perform deletion
