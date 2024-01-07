@@ -6,7 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-
+#include <windows.h> 
 using namespace std;
 
 void remove_inv()
@@ -29,13 +29,15 @@ void remove_inv()
     getline(removecontent, user_name);
     removecontent.close();
 
+    bool pokemonFound = false;
+
     while (true)
     {
         ifstream pokemonFilex("./Assets/poke_base.dat");
         system("cls");
         int num = 1;
 
-        cout << setw(3) << "ID  " << setw(15) << left << setw(15) << "Name" << setw(15) << "Type" <<  endl;
+        cout << setw(3) << "ID  " << setw(15) << left << setw(15) << "Name" << setw(15) << "Type" << endl;
         cout << "+------------------+---------------+--------+" << endl;
 
         while (pokemonFilex >> name >> spdiv >> atk >> spatk >> spdef >> def >> hp >> iv >> type >> user)
@@ -44,22 +46,36 @@ void remove_inv()
             {
                 cout << setw(3) << num << setw(15) << left << setw(15) << name << setw(15) << type << endl;
                 num++;
+                pokemonFound = true;
             }
         }
 
         pokemonFilex.close();
 
-        // Ask the user for the number to delete
+        if (!pokemonFound)
+        {
+            cout << "You don't have any Pokemon entered yet. Please add them first." << endl;
+            Sleep(1000);
+            break;
+        }
+
+        
         int deleteNum;
-        cout << "Enter the number of the Pokémon to delete (or 0 to exit): ";
+        cout << "Enter the number of the Pokemon to delete (or 0 to exit): ";
         cin >> deleteNum;
 
         if (deleteNum == 0)
         {
-            break; 
+            break;
         }
 
-        // Reopen the file to perform deletion
+        
+        if (deleteNum < 1 || deleteNum >= num)
+        {
+            cout << "Error: Invalid number entered. Please enter a valid number." << endl;
+            Sleep(1000);
+            continue;
+        }
         ifstream inFile("./Assets/poke_base.dat");
         ofstream outFile("./Assets/temp.dat");
 
@@ -76,19 +92,18 @@ void remove_inv()
             }
             else
             {
-                // Preserve Pokémon of other users
+                // ignore additionof  other users
                 outFile << name << " " << spdiv << " " << atk << " " << spatk << " " << spdef << " " << def << " " << hp << " " << iv << " " << type << " " << user << "\n";
             }
         }
 
         inFile.close();
         outFile.close();
-
-        // Remove the original file and rename the temp file
         remove("./Assets/poke_base.dat");
         rename("./Assets/temp.dat", "./Assets/poke_base.dat");
 
         cout << "Pokémon deleted successfully.\n";
+        Sleep(1000);
     }
 }
 

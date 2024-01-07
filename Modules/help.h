@@ -29,6 +29,7 @@ void showHelp()
     if (choice != "exit")
     {
         system("cls");
+        Sleep(3000);
         cout << endl;
     }
 

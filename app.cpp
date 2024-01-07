@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <conio.h>
+#include <cctype>
+#include <windows.h>
 #include "Modules/tempDelete.h"
 #include "Modules/messages.h"
 #include "Modules/param_based.h"
@@ -32,94 +34,71 @@ public:
         cout << endl;
         string clap;
         ofstream registrix("Admins/registered.txt", ios::app);
-        cout << "Enter Name: ";
-        cin >> reg_user;
-        cout << "Enter pass: ";
+        bool validUsername = false;
+
+        do
+        {
+            cout << "Enter Username : ";
+            cin >> reg_user;
+
+            
+            validUsername = lowerwhat(reg_user);
+
+            if (!validUsername)
+            {
+                cout << "Invalid username format. Please use only lowercase letters and numbers." << endl;
+            }
+            else if (usernameexists())
+            {
+                cout << "Username already exists. Please choose a different one." << endl;
+                validUsername = false; 
+            }
+
+        } while (!validUsername);
+
+        cout << "Enter Password: ";
         cin >> pss_user;
 
-        ifstream dupecheck("Admins/registered.txt");
-        bool duplicate = false;
+        registrix << reg_user << " " << pss_user << endl;
+        registrix.close();
+        cout << "Registration successful!" << endl;
+        exit(0);
+    }
 
-        while (dupecheck >> clap)
+private:
+    bool lowerwhat(const string &str)
+    {
+        for (char ch : str)
         {
-            if (clap == reg_user)
+            if (!islower(ch) && !isdigit(ch))
             {
-                duplicate = true;
-                break;
+                return false;
+            }
+        }
+        return true;
+    }
+
+    bool usernameexists()
+    {
+        ifstream dupecheck("Admins/registered.txt");
+        string existingUsername, existingPassword;
+
+        while (dupecheck >> existingUsername >> existingPassword)
+        {
+            if (existingUsername == reg_user)
+            {
+                dupecheck.close();
+                return true;
             }
         }
 
         dupecheck.close();
-
-        if (duplicate)
-        {
-            cout << "Username already exists. Registration failed." << endl;
-        }
-        else
-        {
-            registrix << reg_user << " " << pss_user << endl;
-            registrix.close();
-            cout << "Registration successful!" << endl;
-        }
+        return false;
+        
     }
 };
 class login
 {
-public:
-    string add_user;
-    string add_pass;
-    bool loginSuccessful;
-
-public:
-    void dologin()
-    {
-        ifstream logUI;
-        string logui;
-        logUI.open("Assets/login.ui");
-        while (getline(logUI, logui))
-        {
-            cout << logui << endl;
-        }
-        logUI.close();
-        cout << endl;
-
-        cout << "Enter Username: ";
-        cin >> add_user;
-
-        cout << "Enter Password: ";
-        add_pass = getPassword();
-
-        ifstream loginFile("Admins/registered.txt");
-        string username;
-        string password;
-
-        loginSuccessful = false; // Initialize here
-
-        while (loginFile >> username >> password)
-        {
-            if (username == add_user && password == add_pass)
-            {
-                loginSuccessful = true;
-                break;
-            }
-        }
-
-        loginFile.close();
-        if (loginSuccessful)
-        {
-            cout << "Login successful!" << endl;
-
-            // note:-> creating user instance//
-            ofstream tempFile("Admins/temp.txt");
-            tempFile << add_user;
-            tempFile.close();
-        }
-        else
-        {
-            cout << "Login failed. Invalid username or password." << endl;
-        }
-    }
-
 private:
     string getPassword()
     {
@@ -132,6 +111,85 @@ private:
         }
         cout << endl;
         return password;
+    }
+
+    string add_user;
+    string add_pass;
+
+public:
+    bool loginSuccessful;
+
+    void dologin()
+    {
+        int attempts = 0;
+        const int maxAttempts = 3;
+
+        do
+        {
+            system("cls");
+            ifstream logUI;
+            string logui;
+            logUI.open("Assets/login.ui");
+            while (getline(logUI, logui))
+            {
+                cout << logui << endl;
+            }
+            logUI.close();
+            cout << endl;
+
+            cout << "Enter Username: ";
+            cin >> add_user;
+
+            cout << "Enter Password: ";
+            add_pass = getPassword();
+
+            ifstream loginFile("Admins/registered.txt");
+            string username;
+            string password;
+
+            loginSuccessful = false;
+
+            while (loginFile >> username >> password)
+            {
+                if (username == add_user && password == add_pass)
+                {
+                    loginSuccessful = true;
+                    break;
+                }
+            }
+
+            loginFile.close();
+
+            if (loginSuccessful)
+            {
+                cout << "Login successful!" << endl;
+
+                // note:-> creating user instance//
+                ofstream tempFile("Admins/temp.txt");
+                tempFile << add_user;
+                tempFile.close();
+
+                Sleep(1000);
+            }
+            else
+            {
+                attempts++;
+
+                cout << "Login failed. Invalid username or password." << endl;
+
+                if (attempts < maxAttempts)
+                {
+                    cout << "You have " << maxAttempts - attempts << " attempts remaining." << endl;
+                }
+                else
+                {
+                    cout << "Maximum login attempts reached. Exiting program." << endl;
+                    exit(0);
+                }
+
+                Sleep(2000);
+            }
+        } while (!loginSuccessful && attempts < maxAttempts);
     }
 };
 class root : public registration, public login
@@ -155,32 +213,40 @@ public:
     Helper amazing;
     void firstPhase()
     {
-        getRoot();
-        cout << endl;
-        cout << "Enter your choice: ";
-        cin >> optRoot;
-
-        switch (optRoot)
+        do
         {
-        case 1:
             system("cls");
-            dologin();
-            break;
-        case 2:
-            system("cls");
-            doregister();
-            break;
-        case 3:
-          system("cls");
-          amazing.showHelp();
-          exit(0);
-                
-        case 4:
-            cout << "Exiting the program. Goodbye!" << endl;
-            break;
-        default:
-            cout << "Invalid choice. Please try again." << endl;
-        }
+            getRoot();
+            cout << endl;
+            cout << "Enter your choice: ";
+            cin >> optRoot;
+
+            switch (optRoot)
+            {
+            case 1:
+                system("cls");
+                dologin();
+                break;
+            case 2:
+                system("cls");
+                doregister();
+                break;
+            case 3:
+                system("cls");
+                amazing.showHelp();
+                exit(0);
+                break;
+            case 4:
+                cout << "Exiting the program. Goodbye!" << endl;
+                Sleep(1000);
+                exit(0);
+                break;
+            default:
+                cout << "Invalid choice. Please try again." << endl;
+                Sleep(1000);
+            }
+
+        } while (optRoot < 1 || optRoot > 4);
 
         if (optRoot == 2 && loginSuccessful)
         {
@@ -229,9 +295,11 @@ public:
                 break;
             case 3:
                 cout << "Exiting view mode. Returning to main menu." << endl;
+                Sleep(1000);
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
+                Sleep(1000);
             }
         } while (optionForView != 3);
     }
@@ -317,6 +385,7 @@ private:
         mainmenu.close();
     }
 
+
 public:
   
     void pokemonOperation()
@@ -345,16 +414,14 @@ public:
                 remove_inv();
                 break;
             case '4':
-                system("cls");
-                cout << "pending " <<endl;
-                break;
-            case '5':
-                cout << "Exiting .." << std::endl;
+                cout << "Exiting .." << endl;
+                Sleep(1000);
                 break;
             default:
-                cout << "Invalid choice. Please try again." << std::endl;
+                cout << "Invalid choice. Please try again." << endl;
+                Sleep(1000);
             }
-        } while (choice != '5');
+        } while (choice != '4');
     }
 };
 
@@ -392,9 +459,11 @@ int main()
             case '2':
                 tempo.deleteFile();
                 cout << "Logging out. Goodbye!" << endl;
+                Sleep(1000);
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
+                Sleep(1000);
             }
 
         } while (mainChoice != '2');
