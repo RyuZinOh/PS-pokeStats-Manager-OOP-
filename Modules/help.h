@@ -10,45 +10,30 @@ using namespace std;
 class Helper
 {
 private:
-    string help;
+    string line;
 
 public:
-    void showHelp()
+void showHelp()
+{
+    ifstream helpTxt("./Admins/help.txt");
+    
+    while (getline(helpTxt, line))
     {
-        ifstream helpTxt;
-
-        helpTxt.open("./Admins/help.txt");
-        if (!helpTxt.is_open())
-        {
-            cerr << "Error opening help.txt" << endl;
-            return;
-        }
-
-        while (getline(helpTxt, help))
-        {
-            cout << help << endl;
-
-            cout << "\n"
-                 << "Enter anything to exit: ";
-            string choice;
-            cin >> choice;
-
-            if (choice == "exit")
-            {
-                system("cls");
-                break;
-            }
-            else
-            {
-                system("cls");
-                cout << endl;
-               break;
-                
-            }
-        }
-
-        helpTxt.close();
+        cout << line << endl;
     }
+
+    cout << "\nEnter anything to exit: ";
+    string choice;
+    cin >> choice;
+
+    if (choice != "exit")
+    {
+        system("cls");
+        cout << endl;
+    }
+
+    helpTxt.close();
+}
 };
 
 #endif

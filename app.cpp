@@ -152,6 +152,7 @@ private:
     }
 
 public:
+    Helper amazing;
     void firstPhase()
     {
         getRoot();
@@ -170,6 +171,11 @@ public:
             doregister();
             break;
         case 3:
+          system("cls");
+          amazing.showHelp();
+          exit(0);
+                
+        case 4:
             cout << "Exiting the program. Goodbye!" << endl;
             break;
         default:
@@ -312,7 +318,7 @@ private:
     }
 
 public:
-    Helper amazing;
+  
     void pokemonOperation()
     {
 
@@ -340,7 +346,7 @@ public:
                 break;
             case '4':
                 system("cls");
-                amazing.showHelp();
+                cout << "pending " <<endl;
                 break;
             case '5':
                 cout << "Exiting .." << std::endl;
@@ -367,6 +373,8 @@ int main()
         do
         {
             system("cls");
+            cout << "++--++----------------------+" << endl;
+            cout << "|| HOME PAGE [pokemon]      |" << endl;
             cout << "++--++----------------------+" << endl;
             cout << "|| 1|| Pokemon Operations   |" << endl;
             cout << "|| 2|| Logout               |" << endl;

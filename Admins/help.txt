@@ -1,1 +1,24 @@
-1.  this is help
+==============================================================
+     ~~  USER MANUAL~~
+==============================================================
+
+1. **USER REGISTRATION**
+   don't have account?, here at the root menu select option 2 to go to register  .
+   - Enter your desired username.
+   - Enter a password.
+   -done.
+
+2. **LOGIN- USER**
+   If you already have an account, choose option 1 in the main menu.
+   - Enter your username.
+   - Enter your password.
+   - u will be redirect to a home menu where u can log out or go to pokemon operations, where magic happens.
+
+3. **MAIN MENU**
+   - when u reach main menu, u can now add pokemon to database[dat file ] which can be used at pokemon market and as pokemon damage calculator for further project, 
+   also u can view ur inv, and 0nly remove your inv, and u can download the entire database in a excel format . 
+
+
+==============================================================
+            ``THANK YOU ````
+==============================================================
