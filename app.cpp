@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <conio.h>
+#include <ncurses.h> //conio.h in linux
 #include <cctype>
-#include <windows.h>
+#include <unistd.h>
 #include "Modules/tempDelete.h"
 #include "Modules/messages.h"
 #include "Modules/param_based.h"
@@ -100,19 +100,6 @@ private:
 class login
 {
 private:
-    string getPassword()
-    {
-        string password;
-        char ch;
-        while ((ch = _getch()) != 13)
-        {
-            cout << '*';
-            password += ch;
-        }
-        cout << endl;
-        return password;
-    }
-
     string add_user;
     string add_pass;
 
@@ -126,7 +113,7 @@ public:
 
         do
         {
-            system("cls");
+            system("clear");
             ifstream logUI;
             string logui;
             logUI.open("Assets/login.ui");
@@ -141,7 +128,8 @@ public:
             cin >> add_user;
 
             cout << "Enter Password: ";
-            add_pass = getPassword();
+            cin >> add_pass;
+            cout << endl;
 
             ifstream loginFile("Admins/registered.txt");
             string username;
@@ -169,7 +157,7 @@ public:
                 tempFile << add_user;
                 tempFile.close();
 
-                Sleep(1000);
+                sleep(1);
             }
             else
             {
@@ -187,11 +175,12 @@ public:
                     exit(0);
                 }
 
-                Sleep(2000);
+                sleep(1);
             }
         } while (!loginSuccessful && attempts < maxAttempts);
     }
 };
+
 class root : public registration, public login
 {
 private:
@@ -215,7 +204,7 @@ public:
     {
         do
         {
-            system("cls");
+            system("clear");
             getRoot();
             cout << endl;
             cout << "Enter your choice: ";
@@ -224,33 +213,33 @@ public:
             switch (optRoot)
             {
             case 1:
-                system("cls");
+                system("clear");
                 dologin();
                 break;
             case 2:
-                system("cls");
+                system("clear");
                 doregister();
                 break;
             case 3:
-                system("cls");
+                system("clear");
                 amazing.showHelp();
                 exit(0);
                 break;
             case 4:
                 cout << "Exiting the program. Goodbye!" << endl;
-                Sleep(1000);
+                sleep(1);
                 exit(0);
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
-                Sleep(1000);
+                sleep(1);
             }
 
         } while (optRoot < 1 || optRoot > 4);
 
         if (optRoot == 2 && loginSuccessful)
         {
-            system("cls");
+            system("clear");
         }
     }
 };
@@ -286,20 +275,20 @@ public:
             switch (optionForView)
             {
             case 1:
-                system("cls");
+                system("clear");
                 displayPokemonList();
                 break;
             case 2:
-                system("cls");
+                system("clear");
                 userinv();
                 break;
             case 3:
                 cout << "Exiting view mode. Returning to main menu." << endl;
-                Sleep(1000);
+                sleep(1);
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
-                Sleep(1000);
+                sleep(1);
             }
         } while (optionForView != 3);
     }
@@ -394,7 +383,7 @@ public:
         char choice;
         do
         {
-            system("cls");
+            system("clear");
             displayMenu();
             cout << "Enter your choice: ";
             cin >> choice;
@@ -402,24 +391,24 @@ public:
             switch (choice)
             {
             case '1':
-                system("cls");
+                system("clear");
                 addpoke();
                 break;
             case '2':
-                system("cls");
+                system("clear");
                 viewpokemon();
                 break;
             case '3':
-                system("cls");
+                system("clear");
                 remove_inv();
                 break;
             case '4':
                 cout << "Exiting .." << endl;
-                Sleep(1000);
+                sleep(1);
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
-                Sleep(1000);
+                sleep(1);
             }
         } while (choice != '4');
     }
@@ -439,7 +428,7 @@ int main()
         char mainChoice;
         do
         {
-            system("cls");
+            system("clear");
             cout << "++--++----------------------+" << endl;
             cout << "|| HOME PAGE [pokemon]      |" << endl;
             cout << "++--++----------------------+" << endl;
@@ -453,17 +442,17 @@ int main()
             switch (mainChoice)
             {
             case '1':
-                system("cls");
+                system("clear");
                 myPokemon.pokemonOperation();
                 break;
             case '2':
                 tempo.deleteFile();
                 cout << "Logging out. Goodbye!" << endl;
-                Sleep(1000);
+                sleep(1);
                 break;
             default:
                 cout << "Invalid choice. Please try again." << endl;
-                Sleep(1000);
+                sleep(1);
             }
 
         } while (mainChoice != '2');

@@ -4,6 +4,7 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <unistd.h>
 
 using namespace std;
 
@@ -28,8 +29,8 @@ void showHelp()
 
     if (choice != "exit")
     {
-        system("cls");
-        Sleep(3000);
+        system("clear");
+        sleep(1);
         cout << endl;
     }
 

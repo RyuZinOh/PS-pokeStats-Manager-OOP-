@@ -40,7 +40,7 @@ void displayPokemonDetails(int pokemonID)
     {
         if (currentPokemonID == pokemonID)
         {
-            system("cls");
+            system("clear");
             cout << "-------+--------+---------+" << endl;
             cout << "POKEMON DETAILS FOR ID " << pokemonID << endl;
             cout << "-------+-------+----------+" << endl;
@@ -73,7 +73,7 @@ void displayPokemonList()
         PokemonData pokemon;
 
         cout << endl;
-        system("cls");
+        system("clear");
         cout << left << setw(8) << "Number" << left << setw(15) << "Name" << left << setw(8) << "IV %" << left << setw(15) << "Owner Name" << endl;
         cout << "+--------------+---------+-------------+" << endl;
 

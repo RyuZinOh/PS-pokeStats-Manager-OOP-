@@ -6,7 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <windows.h> 
+#include <unistd.h> 
 using namespace std;
 
 void remove_inv()
@@ -34,7 +34,7 @@ void remove_inv()
     while (true)
     {
         ifstream pokemonFilex("./Assets/poke_base.dat");
-        system("cls");
+        system("clear");
         int num = 1;
 
         cout << setw(3) << "ID  " << setw(15) << left << setw(15) << "Name" << setw(15) << "Type" << endl;
@@ -55,7 +55,7 @@ void remove_inv()
         if (!pokemonFound)
         {
             cout << "You don't have any Pokemon entered yet. Please add them first." << endl;
-            Sleep(1000);
+            sleep(1);
             break;
         }
 
@@ -73,7 +73,7 @@ void remove_inv()
         if (deleteNum < 1 || deleteNum >= num)
         {
             cout << "Error: Invalid number entered. Please enter a valid number." << endl;
-            Sleep(1000);
+            sleep(1);
             continue;
         }
         ifstream inFile("./Assets/poke_base.dat");
@@ -103,7 +103,7 @@ void remove_inv()
         rename("./Assets/temp.dat", "./Assets/poke_base.dat");
 
         cout << "Pokémon deleted successfully.\n";
-        Sleep(1000);
+        sleep(1);
     }
 }
 

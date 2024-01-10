@@ -31,7 +31,7 @@ void userinv()
 
     ifstream pokemonFile("./Assets/poke_base.dat");
     string line;
-    system("cls");
+    system("clear");
 
     while (true)
     {
@@ -54,12 +54,12 @@ void userinv()
 
         if (choice == "exit")
         {
-            system("cls");
+            system("clear");
             break; 
         }
         else
         {
-            system("cls");
+            system("clear");
             cout << endl;
             cout << "invalid";
         }
