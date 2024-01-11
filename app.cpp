@@ -180,7 +180,6 @@ public:
         } while (!loginSuccessful && attempts < maxAttempts);
     }
 };
-
 class root : public registration, public login
 {
 private:

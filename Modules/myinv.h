@@ -4,7 +4,6 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include <vector>
 #include <iomanip>
 
 using namespace std;
@@ -33,35 +32,46 @@ void userinv()
     string line;
     system("clear");
 
+    bool foundPokemon = false; //
+    int num = 1;
+
     while (true)
     {
-        cout << left << setw(15) << "Name" << setw(10) << "Type" << setw(5) << "HP" << endl;
-        cout <<"+-------------------+---------------+" << endl;
+        cout << left << setw(15) << "S.N" << setw(10) << "NAME" << setw(5) << "TYPE" << endl;
+        cout << "+-------------------+---------------+" << endl;
         while (pokemonFile >> name >> spdiv >> atk >> spatk >> spdef >> def >> hp >> iv >> type >> user)
         {
             if (user == username)
             {
-                cout << left << setw(15) << name << setw(10) << type << setw(5) << hp << endl;
+                cout << left << setw(15) << num << setw(10) << name << setw(5) << type << endl;
+                foundPokemon = true;  
+                num++;
             }
         }
 
-        pokemonFile.clear();            
-        pokemonFile.seekg(0, ios::beg); 
+        pokemonFile.clear();
+        pokemonFile.seekg(0, ios::beg);
 
-        cout <<"\n"<< "Enter [exit] to exit: ";
+        if (!foundPokemon)
+        {
+            cout << "No Pokemon in inventory for user: " << username << endl;
+        }
+
+        cout << "\n"
+             << "Enter [exit] to exit: ";
         string choice;
         cin >> choice;
 
         if (choice == "exit")
         {
             system("clear");
-            break; 
+            break;
         }
         else
         {
             system("clear");
             cout << endl;
-            cout << "invalid";
+            cout << "Invalid choice";
         }
     }
 

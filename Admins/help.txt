@@ -1,24 +1,25 @@
 ==============================================================
-     ~~  USER MANUAL~~
+                  🌟 WELCOME TO POKEMON PORTAL 🌟
 ==============================================================
 
 1. **USER REGISTRATION**
-   don't have account?, here at the root menu select option 2 to go to register  .
-   - Enter your desired username.
-   - Enter a password.
-   -done.
+   🚀 Don't have an account yet? Follow these simple steps:
+      - Select option 2 in the main menu to register.
+      - Enter your desired username.
+      - Set a secure password.
+      - You're all set!
 
-2. **LOGIN- USER**
-   If you already have an account, choose option 1 in the main menu.
-   - Enter your username.
-   - Enter your password.
-   - u will be redirect to a home menu where u can log out or go to pokemon operations, where magic happens.
+2. **LOGIN - USER**
+   🔐 If you already have an account, choose option 1 from the main menu.
+      - Enter your username.
+      - Input your password.
+      - Enjoy the magic of the Pokemon world in the home menu.
 
 3. **MAIN MENU**
-   - when u reach main menu, u can now add pokemon to database[dat file ] which can be used at pokemon market and as pokemon damage calculator for further project, 
-   also u can view ur inv, and 0nly remove your inv, and u can download the entire database in a excel format . 
-
+   🎮 Explore exciting options at the main menu:
+      - Add Pokemon to the database file for Pokemon market and damage calculator.
+      - View your inventory and remove items as needed.
 
 ==============================================================
-            ``THANK YOU ````
+                    🙏 THANK YOU FOR JOINING 🙏
 ==============================================================

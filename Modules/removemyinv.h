@@ -73,7 +73,7 @@ void remove_inv()
         if (deleteNum < 1 || deleteNum >= num)
         {
             cout << "Error: Invalid number entered. Please enter a valid number." << endl;
-            sleep(1);
+            sleep(2);
             continue;
         }
         ifstream inFile("./Assets/poke_base.dat");
