@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <ncurses.h> //conio.h in linux
+#include <conio.h>
 #include <cctype>
 #include <unistd.h>
 #include "Modules/tempDelete.h"
@@ -9,7 +9,7 @@
 #include "Modules/param_based.h"
 #include "Modules/myinv.h"
 #include "Modules/help.h"
-// Remove-module-->implemted on header file
+
 #include "Modules/removemyinv.h"
 using namespace std;
 
@@ -113,7 +113,7 @@ public:
 
         do
         {
-            system("clear");
+            system("cls");
             ifstream logUI;
             string logui;
             logUI.open("Assets/login.ui");
@@ -203,7 +203,7 @@ public:
     {
         do
         {
-            system("clear");
+            system("cls");
             getRoot();
             cout << endl;
             cout << "Enter your choice: ";
@@ -212,15 +212,15 @@ public:
             switch (optRoot)
             {
             case 1:
-                system("clear");
+                system("cls");
                 dologin();
                 break;
             case 2:
-                system("clear");
+                system("cls");
                 doregister();
                 break;
             case 3:
-                system("clear");
+                system("cls");
                 amazing.showHelp();
                 exit(0);
                 break;
@@ -238,7 +238,7 @@ public:
 
         if (optRoot == 2 && loginSuccessful)
         {
-            system("clear");
+            system("cls");
         }
     }
 };
@@ -274,11 +274,11 @@ public:
             switch (optionForView)
             {
             case 1:
-                system("clear");
+                system("cls");
                 displayPokemonList();
                 break;
             case 2:
-                system("clear");
+                system("cls");
                 userinv();
                 break;
             case 3:
@@ -382,7 +382,7 @@ public:
         char choice;
         do
         {
-            system("clear");
+            system("cls");
             displayMenu();
             cout << "Enter your choice: ";
             cin >> choice;
@@ -390,15 +390,15 @@ public:
             switch (choice)
             {
             case '1':
-                system("clear");
+                system("cls");
                 addpoke();
                 break;
             case '2':
-                system("clear");
+                system("cls");
                 viewpokemon();
                 break;
             case '3':
-                system("clear");
+                system("cls");
                 remove_inv();
                 break;
             case '4':
@@ -427,7 +427,7 @@ int main()
         char mainChoice;
         do
         {
-            system("clear");
+            system("cls");
             cout << "++--++----------------------+" << endl;
             cout << "|| HOME PAGE [pokemon]      |" << endl;
             cout << "++--++----------------------+" << endl;
@@ -441,7 +441,7 @@ int main()
             switch (mainChoice)
             {
             case '1':
-                system("clear");
+                system("cls");
                 myPokemon.pokemonOperation();
                 break;
             case '2':

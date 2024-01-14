@@ -30,7 +30,7 @@ void userinv()
 
     ifstream pokemonFile("./Assets/poke_base.dat");
     string line;
-    system("clear");
+    system("cls");
 
     bool foundPokemon = false; //
     int num = 1;
@@ -64,12 +64,12 @@ void userinv()
 
         if (choice == "exit")
         {
-            system("clear");
+            system("cls");
             break;
         }
         else
         {
-            system("clear");
+            system("cls");
             cout << endl;
             cout << "Invalid choice";
         }

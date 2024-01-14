@@ -34,7 +34,7 @@ void remove_inv()
     while (true)
     {
         ifstream pokemonFilex("./Assets/poke_base.dat");
-        system("clear");
+        system("cls");
         int num = 1;
 
         cout << setw(3) << "ID  " << setw(15) << left << setw(15) << "Name" << setw(15) << "Type" << endl;
