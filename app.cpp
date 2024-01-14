@@ -128,7 +128,7 @@ public:
             cin >> add_user;
 
             cout << "Enter Password: ";
-            cin >> add_pass;
+            add_pass = getPassword(); // Call the getPassword function to hide password input
             cout << endl;
 
             ifstream loginFile("Admins/registered.txt");
@@ -179,7 +179,33 @@ public:
             }
         } while (!loginSuccessful && attempts < maxAttempts);
     }
+
+    // Function to get password without displaying it
+    string getPassword()
+    {
+        string password = "";
+        char ch;
+
+        while ((ch = _getch()) != 13) 
+        {
+            if (ch == 8)
+            {
+                if (!password.empty())
+                {
+                    cout << "\b \b"; 
+                    password.pop_back(); 
+                }
+            }
+            else
+            {
+                cout << '*'; 
+                password += ch;
+            }
+        }
+        return password;
+    }
 };
+
 class root : public registration, public login
 {
 private:
