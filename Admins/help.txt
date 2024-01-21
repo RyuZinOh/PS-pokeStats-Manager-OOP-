@@ -1,25 +1,25 @@
-==============================================================
-                  🌟 WELCOME TO POKEMON PORTAL 🌟
-==============================================================
-
-1. **USER REGISTRATION**
-   🚀 Don't have an account yet? Follow these simple steps:
-      - Select option 2 in the main menu to register.
-      - Enter your desired username.
-      - Set a secure password.
-      - You're all set!
-
-2. **LOGIN - USER**
-   🔐 If you already have an account, choose option 1 from the main menu.
-      - Enter your username.
-      - Input your password.
-      - Enjoy the magic of the Pokemon world in the home menu.
-
-3. **MAIN MENU**
-   🎮 Explore exciting options at the main menu:
-      - Add Pokemon to the database file for Pokemon market and damage calculator.
-      - View your inventory and remove items as needed.
-
-==============================================================
-                    🙏 THANK YOU FOR JOINING 🙏
-==============================================================
+|=======================================================================================|
+|                  WELCOME TO POKEMON PORTAL                                            |
+|=======================================================================================|
+|                                                                                       |
+|1. **USER REGISTRATION**                                                               |
+|    Don't have an account yet? Follow these simple steps:                              |
+|      - Select option 2 in the main menu to register.                                  |
+|      - Enter your desired username.                                                   |
+|      - Set a secure password.                                                         |
+|      - You're all set!                                                                |
+|                                                                                       |
+|2. **LOGIN - USER**                                                                    |
+|    If you already have an account, choose option 1 from the main menu.                |
+|      - Enter your username.                                                           |
+|      - Input your password.                                                           |
+|      - Enjoy the magic of the Pokemon world in the home menu.                         |
+|                                                                                       |
+|3. **MAIN MENU**                                                                       |
+|    Explore exciting options at the main menu:                                         |
+|      - Add Pokemon to the database file for Pokemon market and damage calculator.     |
+|      - View your inventory and remove items as needed.                                |        
+|                                                                                       |
+|=======================================================================================|
+|                     THANK YOU FOR JOINING                                             |
+|=======================================================================================|

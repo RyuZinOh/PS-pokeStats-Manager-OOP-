@@ -102,7 +102,7 @@ void remove_inv()
         remove("./Assets/poke_base.dat");
         rename("./Assets/temp.dat", "./Assets/poke_base.dat");
 
-        cout << "Pokémon deleted successfully.\n";
+        cout << "Pokemon deleted successfully.\n";
         sleep(1);
     }
 }

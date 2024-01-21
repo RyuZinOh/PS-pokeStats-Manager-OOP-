@@ -17,7 +17,12 @@ public:
 void showHelp()
 {
     ifstream helpTxt("./Admins/help.txt");
-    
+    cout << "loading";
+    for (int i =0 ; i < 5 ; i++){
+        sleep(1);
+        cout << ".";
+    }
+    system("cls");
     while (getline(helpTxt, line))
     {
         cout << line << endl;
