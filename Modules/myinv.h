@@ -32,7 +32,7 @@ void userinv()
     string line;
     system("cls");
 
-    bool foundPokemon = false; //
+    bool foundPokemon = false; 
     int num = 1;
 
     while (true)
