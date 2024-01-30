@@ -46,11 +46,14 @@ void displayPokemonDetails(int pokemonID)
             cout << "NAME:              " << pokemon.name << endl;
             cout << "TYPE:              " << pokemon.type << endl;
             cout << "OWNER:             " << pokemon.ownerName << endl;
-            cout << "ATTACK:            " << pokemon.atk << endl;
-            cout << "SPECIAL ATTACK:    " << pokemon.spatk << endl;
-            cout << "DEFENCE:           " << pokemon.def << endl;
-            cout << "SPECIAL DEFENCE:   " << pokemon.spdef << endl;
-            cout << "HP:                " << pokemon.hp << endl;
+            cout << "--------+----------+-----+" << endl;
+            cout << "HP:                " << pokemon.hp << "/31" << endl;
+            cout << "ATTACK:            " << pokemon.atk << "/31" << endl;
+            cout << "DEFENCE:           " << pokemon.def << "/31" << endl;
+            cout << "SPECIAL ATTACK:    " << pokemon.spatk << "/31" << endl;
+            cout << "SPECIAL DEFENCE:   " << pokemon.spdef << "/31" << endl;
+            cout << "SPEED :            " << pokemon.spdiv << "/31" << endl;
+            cout << "--------+----------+-----+" << endl;        
             cout << "IV:                " << pokemon.iv << "%" << endl;
             cout << "--------+----------+-----+" << endl;
 
