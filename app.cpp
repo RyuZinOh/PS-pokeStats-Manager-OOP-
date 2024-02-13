@@ -13,7 +13,7 @@
 #include "Modules/removemyinv.h"
 using namespace std;
 
-//----ADMIN-SECTION----//
+//----ADMIN-SECTION-----//
 class registration
 {
 private:
