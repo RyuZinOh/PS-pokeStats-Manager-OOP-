@@ -19,8 +19,6 @@ class registration
 private:
 	string reg_user;
 	string pss_user;
-	string test;
-
 public:
 	void doregister()
 	{
