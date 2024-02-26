@@ -19,6 +19,7 @@ class registration
 private:
 	string reg_user;
 	string pss_user;
+
 public:
 	void doregister()
 	{
@@ -359,7 +360,7 @@ public:
 		{
 			cout << "Invalid speed value. Please enter a value between 0 and 31." << endl;
 			sleep(1);
-			return 1; 
+			return 1;
 		}
 
 		cout << "Enter " << name << " attack IV : ";
@@ -370,7 +371,7 @@ public:
 		{
 			cout << "Invalid attack value. Please enter a value between 0 and 31." << endl;
 			sleep(1);
-			return 1; 
+			return 1;
 		}
 
 		cout << "Enter " << name << " special attack IV : ";
@@ -381,7 +382,7 @@ public:
 		{
 			cout << "Invalid special attack value. Please enter a value between 0 and 31." << endl;
 			sleep(1);
-			return 1; 
+			return 1;
 		}
 
 		cout << "Enter " << name << " special defence IV : ";
@@ -392,8 +393,8 @@ public:
 		{
 			cout << "Invalid special defense value. Please enter a value between 0 and 31." << endl;
 			sleep(1);
-			return 1; 
-			}
+			return 1;
+		}
 
 		cout << "Enter " << name << " defence IV : ";
 		cin >> def;
@@ -402,8 +403,8 @@ public:
 		if (def < 0 || def > 31)
 		{
 			cout << "Invalid defense value. Please enter a value between 0 and 31." << endl;
-		    sleep(1);
-			return 1; 
+			sleep(1);
+			return 1;
 		}
 
 		cout << "Enter " << name << " HP IV : ";
@@ -419,7 +420,7 @@ public:
 		cout << "Enter Pokemon TYPE: ";
 		cin >> type;
 
-		iv = ((hp + def + spdef + spatk + atk + spdiv) / 186) * 100 ;
+		iv = ((hp + def + spdef + spatk + atk + spdiv) / 186) * 100;
 		poke << name << '\t' << spdiv << '\t' << atk << '\t' << spatk << '\t'
 			 << spdef << '\t' << def << '\t' << hp << '\t' << iv << '\t' << type << '\t' << getuserfromtemp << '\n';
 		Messages::showPokemonAddedMessage();
@@ -490,51 +491,45 @@ public:
 //------MAIN FUNCTION-----//
 int main()
 {
-    TempDelete tempo;
-    Pokemon myPokemon;
-    root check; 
+	TempDelete tempo;
+	Pokemon myPokemon;
+	root check;
 
-    check.firstPhase();
+	check.firstPhase();
 
-    if (check.loginSuccessful)
-    {
-        int mainChoice;
-        do
-        {
-            system("cls"); 
-            cout << "++--++----------------------+" << endl;
-            cout << "|| HOME PAGE [pokemon]      |" << endl;
-            cout << "++--++----------------------+" << endl;
-            cout << "|| 1|| Pokemon Operations   |" << endl;
-            cout << "|| 2|| Switch user          |" << endl;
-            cout << "|| 3|| Logout               |" << endl;
-            cout << "++--++----------------------+" << endl;
+	if (check.loginSuccessful)
+	{
+		int mainChoice;
+		do
+		{
+			system("cls");
+			cout << "++--++----------------------+" << endl;
+			cout << "|| HOME PAGE [pokemon]      |" << endl;
+			cout << "++--++----------------------+" << endl;
+			cout << "|| 1|| Pokemon Operations   |" << endl;
+			cout << "|| 2|| Logout               |" << endl;
+			cout << "++--++----------------------+" << endl;
 
-            cout << "Enter your choice: ";
-            cin >> mainChoice;
+			cout << "Enter your choice: ";
+			cin >> mainChoice;
 
-            switch (mainChoice)
-            {
-            case 1:
-                system("cls"); 
-                myPokemon.pokemonOperation();
-                break;
-            case 2:
-                cout << "Planned functionality for switching user." << endl;
-                break; 
+			switch (mainChoice)
+			{
+			case 1:
+				system("cls");
+				myPokemon.pokemonOperation();
+				break;
+			case 2:
+				tempo.deleteFile();
+				cout << "Logging out. Goodbye!" << endl;
+				break;
+			default:
+				cout << "Invalid choice. Please try again." << endl;
+				sleep(1);
+			}
 
-            case 3:
-                tempo.deleteFile();
-                cout << "Logging out. Goodbye!" << endl;
-                break;
-            default:
-                cout << "Invalid choice. Please try again." << endl;
-                sleep(1);
-            }
+		} while (mainChoice != 2);
+	}
 
-        } while (mainChoice != 3); 
-
-    }
-
-    return 0;
+	return 0;
 }
